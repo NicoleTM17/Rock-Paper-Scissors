@@ -1,0 +1,10 @@
+
+.playing-cards-wrapper{
+  display: flex;
+}
+
+.playing-card{
+  border: 2px solid green;
+  padding: 15px 15px;
+  cursor:pointer;
+}

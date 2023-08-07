@@ -1,10 +1,119 @@
 
+.rps-logo{
+  position: fixed;
+  top: 0;
+  max-width: 10%;
+}
+
+
 .playing-cards-wrapper{
   display: flex;
+  justify-content: center;
 }
 
 .playing-card{
-  border: 2px solid green;
+  max-width: 250px;
+  max-height: auto;
+  cursor: pointer;
+}
+
+.player-title{
+  text-align: center;
+  font-weight: 600;
+}
+
+.move-text{
+  font-size: 1.5em;
+  margin-left: 3.5em;
+}
+
+
+.cpu-cards-wrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.rotate{
+  transform: rotate(180deg);
+  opacity: 0.5;
+}
+
+.cpu-card{
+  max-width: 150px;
+  max-height: auto;
+}
+
+.cpu-title{
+  text-align: center;
+  font-weight: 600;
+}
+
+.cpu-text{
+  font-size: 0.75em;
+  margin-left: 4.5em;
+}
+
+/* .game-stats{
+  justify-content: center;
+  align-items: center;
+} */
+
+.moves-row{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.counters{
+  font-size: 2.5em;
+  position: fixed;
+  top: 0;
+  right: 1em;
+}
+
+.game-result{
+  position: fixed;
+  top: 3em;
+  right: 1em;
+  text-align: center;
+}
+
+.you-green{
+  color: green;
+}
+
+.cpu-red{
+  color: red;
+}
+
+/* ONLY DISPLAYS WHEN SOMEONE REACHES 3 POINTS */
+
+.overall-winner{
+  position: fixed;
+  top: 8em;
+  right: 1em;
+  text-align: center;
+  display: none;
+}
+
+.play-btn{
+  position: fixed;
+  top: 10em;
+  right: 1em;
+  width: 80px;
   padding: 15px 15px;
-  cursor:pointer;
+  background-color: red;
+  border: 3px solid red;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+  display: none;
+}
+
+.play-btn:hover{
+  border: 3px solid red;
+  background-color: white;
+  color: black;
 }

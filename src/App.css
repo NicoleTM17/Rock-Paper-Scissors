@@ -1,4 +1,23 @@
 .container{
-  border: 1px solid red;
-  min-height: 150vh;
+  max-height: 100%;
+  /* background: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%); */
+}
+
+
+@media (max-width: 960px) {
+  .container{
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .container{
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .container{
+    max-width: 100%;
+  }
 }

@@ -79,10 +79,13 @@
   }
 
   .move-text{
-    margin-left: 2em;
-    /* font-size: 0.75em; */
+    margin-left: 3em;
+    font-size: 0.75em;
   }
 
+  .cpu-text{
+    margin-left: 3em;
+  }
 
   .cpu-card{
     max-width: 100px;

@@ -1,5 +1,5 @@
 import './App.css';
-import './style/responsive.css';
+
 
 import Game from './components/Game.js';
 

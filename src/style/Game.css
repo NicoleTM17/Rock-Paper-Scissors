@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   left: 1em;
-  max-width: 10%;
+  width: 10%;
 }
 
 
@@ -13,8 +13,8 @@
 }
 
 .playing-card{
-  max-width: 250px;
-  max-height: auto;
+  width: 250px;
+  /* max-height: auto; */
   cursor: url('../../public/images/pointer.png'), auto;
 }
 
@@ -41,8 +41,8 @@
 }
 
 .cpu-card{
-  max-width: 150px;
-  max-height: auto;
+  width: 150px;
+  /* max-height: auto; */
 }
 
 .cpu-title{

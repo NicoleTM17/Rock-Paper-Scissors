@@ -2,6 +2,11 @@
   .container{
     max-width: 100%;
   }
+
+  .game-wrapper{
+    margin-top: 12em;
+  }
+
   .counters{
     font-size: 2em;
   }
@@ -31,6 +36,20 @@
   .cpu-card{
     max-width: 150px;
   }
+
+  .play-btn{
+    left: 1em;
+    top: 6em;
+  }
+
+  .overall-winner{
+    font-size: 1.2em;
+    top: 7em;
+  }
+
+  .game-result{
+    font-size: 1.2em;
+  }
 }
 
 @media (max-width: 540px) {
@@ -39,37 +58,57 @@
   }
 
   .game-wrapper{
-    margin-top: 4em;
+    margin-top: 7em;
   }
 
   .counters{
     font-size: 1em;
-    right: 11em;
+    right: 1em;
   }
 
   .playing-card{
-    max-width: 100px !important;
-    cursor: pointer;
+    max-width: 100px;
 }
+
+  .player-title{
+    font-size: 0.5em;
+  }
+
+  .cpu-title{
+    font-size: 0.5em;
+  }
 
   .move-text{
     margin-left: 2em;
+    /* font-size: 0.75em; */
   }
 
 
   .cpu-card{
-    max-width: 100px !important;
+    max-width: 100px;
 }
 
 
   .moves-row{
-    font-size: 0.75em;
+    font-size: 0.5em;
   }
 
   .game-result{
-    right: 13em;
-    top: 2em;
     font-size: 1em;
+    left: 0;
   }
 
+  .overall-winner{
+    font-size: 1em;
+    left: 0;
+    top: 6em;
+  }
+
+  .play-btn{
+    padding: 4px 4px;
+    width: 36px;
+    font-size: 0.7em;
+    top: 4em;
+    left: 1em;
+  }
 }

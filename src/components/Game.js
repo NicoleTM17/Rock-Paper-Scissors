@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 // CSS
 import '../style/Game.css';
-
+import '../style/responsive.css';
 
 // Here we will be playing a simple game of rock, paper, scissors.
 // The player will be playing against the computer (CPU). The computer will randomly choose rock, paper, or scissors from the array 'Moves'

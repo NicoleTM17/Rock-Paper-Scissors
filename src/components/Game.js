@@ -71,10 +71,10 @@ function Game() {
     function gameWin(){
 
       if(playerCounter === 3){
-        setFinalGameResult(`You win! ${playerCounter} - ${cpuCounter}`);
+        setFinalGameResult(`You won! ${playerCounter} - ${cpuCounter}`);
         setPlayAgain(true);
       } else if (cpuCounter === 3){
-        setFinalGameResult(`You lose! ${playerCounter} - ${cpuCounter}`);
+        setFinalGameResult(`You lost! ${playerCounter} - ${cpuCounter}`);
         setPlayAgain(true);
       };
     };

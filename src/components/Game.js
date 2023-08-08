@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // CSS
 import '../style/Game.css';
@@ -23,7 +23,7 @@ import '../style/Game.css';
 // I'll need to do Math.random on the Moves array so that the CPU will always have a completely random move. (DONE)
 // I will create elements with rock, paper, scissors on it. I will add an eventListener so whichever is clicked will be stored as the players move. (DONE)
 // I'll need a counter variable to count every win (DONE)
-// Once either the player oR cpu gets the 3 points, a message will come up "Winner!" and a play again button (TODO)
+// Once either the player oR cpu gets the 3 points, a message will come up "Winner!" and a play again button (DONE)
 
 
 function Game() {
@@ -33,6 +33,8 @@ function Game() {
   const [gameResult, setGameResult] = useState(''); // useState for the game result
   const [cpuCounter, setCpuCounter] = useState(0); // useState for the cpu's point counter
   const [playerCounter, setPlayerCounter] = useState(0); // useState for the players point counter
+  const [finalGameResult, setFinalGameResult] = useState(''); // useState for the final result after 3 points win
+  const [playAgain, setPlayAgain] = useState(false); // UseState for 'play again' button
 
   // created an array storing rock paper scissors
   const moves = ["Rock", "Paper", "Scissors"];
@@ -59,39 +61,74 @@ function Game() {
   };
 
 
+  // The useEffect hook is used to call the gameWin function whenever the values of playerCounter or cpuCounter change.
+  // playerCounter and cpuCounter are therefore dependencies in this effect
+  // This is helpful to update the game result whenever the scores change.
+  useEffect(() => {
+
+    // Here I am checking if either player or cpu has reached 3 points.
+    // If they have, the game is finished and the play again button will pop up
+    function gameWin(){
+
+      if(playerCounter === 3){
+        setFinalGameResult(`You win! ${playerCounter} - ${cpuCounter}`);
+        setPlayAgain(true);
+      } else if (cpuCounter === 3){
+        setFinalGameResult(`You lose! ${playerCounter} - ${cpuCounter}`);
+        setPlayAgain(true);
+      };
+    };
+
+    gameWin();
+  }, [playerCounter, cpuCounter]);
+
   // create a function roundResult to store the results
   // pass the arguments playerMove and cpuMove
   // Condtional statement determining who wins or loses - set to game result
-  // set the counter to add a point for either player or computer
+  // playerCounter / cpuCounter are incremented by 1 depending on which wins the orund
+  // the current counter value is stored in prevCounter and 1 is added to it.
+  // Then this updated value is stored back in setPlayerCounter
   function roundResult(playerMove, cpuMove) {
 
     if (playerMove === cpuMove){
       setGameResult(<span>It's a <span style={{ textDecoration: 'underline' }}>tie!</span></span>);
-      setPlayerCounter(playerCounter + 0);
-      setCpuCounter(cpuCounter + 0);
+
     } else if (playerMove === "Rock" && cpuMove === "Scissors"){
       setGameResult(<span><span style={{ color: 'green' }}>You win!</span> Rock beats Scissors!</span>);
-      setPlayerCounter(playerCounter + 1);
-      setCpuCounter(cpuCounter + 0);
+      setPlayerCounter((prevCounter) => prevCounter + 1);
+
     } else if (playerMove === "Scissors" && cpuMove === "Paper"){
       setGameResult(<span><span style={{ color: 'green' }}>You win!</span> Scissors beats Paper!</span>);
-      setPlayerCounter(playerCounter + 1);
-      setCpuCounter(cpuCounter + 0);
+      setPlayerCounter((prevCounter) => prevCounter + 1);
+
     } else if (playerMove === "Paper" && cpuMove === "Rock") {
       setGameResult(<span><span style={{ color: 'green' }}>You win!</span> Paper beats Rock!</span>);
-      setPlayerCounter(playerCounter + 1);
-      setCpuCounter(cpuCounter + 0);
+      setPlayerCounter((prevCounter) => prevCounter + 1);
+
     } else {
       setGameResult(<span><span style={{ color: 'red' }}>You Lose!</span> {cpuMove} beats {playerMove}!</span>);
-      setCpuCounter(cpuCounter + 1);
-      setPlayerCounter(playerCounter + 0);
+      setCpuCounter((prevCounter) => prevCounter + 1);
+
     }
   };
 
+  // TO RESET THE GAME SO A FRESH GAME BEGINS
+  function resetGame() {
+    setCpuMove('');
+    setPlayerMove('');
+    setGameResult('');
+    setCpuCounter(0);
+    setPlayerCounter(0);
+    setFinalGameResult('');
+    setPlayAgain(false);
+  }
 
-
-
-
+  // created a click event on play again button
+  // When this button is clicked, the entire game is reset by calling the resetGame function
+  function handleClickReset(event){
+    // console.log(event);
+    resetGame();
+  };
 
 
   return(
@@ -130,8 +167,12 @@ function Game() {
 
       <h1 className='counters'>YOU: {playerCounter} - CPU: {cpuCounter}</h1>
       <h2 className='game-result'>{gameResult}</h2>
-      <div className='overall-winner'>WINNER: </div>
-      <div className='play-btn'>Play again?</div>
+      <div className='overall-winner'>{finalGameResult}</div>
+      {/* ternary operator - when playAgain is true show the play button otherwise keep it hidden */}
+      <div onClick={handleClickReset}
+       className={playAgain === true ? 'play-btn' : 'play-btn-hidden'}
+       >Play again?
+       </div>
     </div>
 
 

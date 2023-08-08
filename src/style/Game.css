@@ -2,6 +2,7 @@
 .rps-logo{
   position: fixed;
   top: 0;
+  left: 1em;
   max-width: 10%;
 }
 
@@ -14,7 +15,7 @@
 .playing-card{
   max-width: 250px;
   max-height: auto;
-  cursor: pointer;
+  cursor: url('../../public/images/pointer.png'), auto;
 }
 
 .player-title{
@@ -25,6 +26,7 @@
 .move-text{
   font-size: 1.5em;
   margin-left: 3.5em;
+  font-family: 'Handjet';
 }
 
 
@@ -51,12 +53,12 @@
 .cpu-text{
   font-size: 0.75em;
   margin-left: 4.5em;
+  font-family: 'Handjet';
 }
 
-/* .game-stats{
-  justify-content: center;
-  align-items: center;
-} */
+.game-stats{
+  font-family: 'Handjet';
+}
 
 .moves-row{
   display: flex;
@@ -79,25 +81,28 @@
 
 .you-green{
   color: green;
+  font-family: 'Handjet';
 }
 
 .cpu-red{
   color: red;
+  font-family: 'Handjet';
 }
 
 /* ONLY DISPLAYS WHEN SOMEONE REACHES 3 POINTS */
 
 .overall-winner{
   position: fixed;
-  top: 8em;
+  top: 5em;
   right: 1em;
   text-align: center;
-  display: none;
+  font-size: 2em;
+  font-weight: 600;
 }
 
 .play-btn{
   position: fixed;
-  top: 10em;
+  top: 14em;
   right: 1em;
   width: 80px;
   padding: 15px 15px;
@@ -108,7 +113,12 @@
   color: white;
   font-weight: 600;
   cursor: pointer;
+  /* OR
+  cursor: url('../public/images/pointer.png'), auto; */
   transition: 200ms ease-in-out;
+}
+
+.play-btn-hidden{
   display: none;
 }
 

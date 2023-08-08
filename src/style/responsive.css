@@ -1,0 +1,75 @@
+@media (max-width: 960px) {
+  .container{
+    max-width: 100%;
+  }
+  .counters{
+    font-size: 2em;
+  }
+
+  .playing-card{
+    max-width: 200px;
+  }
+
+  .cpu-card{
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 720px) {
+  .container{
+    max-width: 100%;
+  }
+
+  .counters{
+    font-size: 1.5em;
+  }
+
+  .playing-card{
+    max-width: 150px;
+  }
+
+  .cpu-card{
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 540px) {
+  .container{
+    max-width: 100%;
+  }
+
+  .game-wrapper{
+    margin-top: 4em;
+  }
+
+  .counters{
+    font-size: 1em;
+    right: 11em;
+  }
+
+  .playing-card{
+    max-width: 100px !important;
+    cursor: pointer;
+}
+
+  .move-text{
+    margin-left: 2em;
+  }
+
+
+  .cpu-card{
+    max-width: 100px !important;
+}
+
+
+  .moves-row{
+    font-size: 0.75em;
+  }
+
+  .game-result{
+    right: 13em;
+    top: 2em;
+    font-size: 1em;
+  }
+
+}
